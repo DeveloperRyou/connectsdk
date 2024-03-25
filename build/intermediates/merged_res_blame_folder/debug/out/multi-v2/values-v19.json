@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/daheekim/Desktop/sample/Connect-SDK-Android-API-Sampler/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
+            "outputFile": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v19/values-v19.xml",
             "map": [
                 {
-                    "source": "/Users/daheekim/.gradle/caches/transforms-3/bbee032ccf61b3a9b30d29d203da7b9d/transformed/jetified-play-services-cast-framework-9.4.0/res/values-v19/values.xml",
+                    "source": "/Users/ryou/.gradle/caches/transforms-3/d8731697707f57390d91b7c9d0f728fc/transformed/jetified-play-services-cast-framework-9.4.0/res/values-v19/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",
