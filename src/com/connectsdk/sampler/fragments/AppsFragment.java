@@ -43,13 +43,17 @@ public class AppsFragment extends BaseFragment {
     //  public Button smartWorldButton;
     public Button browserButton;
     public Button myAppButton;
+    public Button netflixButton;
     public Button appStoreButton;
+    public Button youtubeButton;
     public Button toastButton;
 
     public ListView appListView;
     public AppAdapter adapter;
     LaunchSession runningAppSession;
+    LaunchSession netflixSession;
     LaunchSession appStoreSession;
+    LaunchSession youtubeSession;
     LaunchSession myAppSession;
     public TestResponseObject testResponse;
 
@@ -75,6 +79,7 @@ public class AppsFragment extends BaseFragment {
         browserButton = (Button) rootView.findViewById(R.id.browserButton);
         myAppButton = (Button) rootView.findViewById(R.id.myApp);
         appStoreButton = (Button) rootView.findViewById(R.id.appStoreButton);
+        netflixButton = (Button) rootView.findViewById(R.id.netflixButton);
         toastButton = (Button) rootView.findViewById(R.id.toastButton);
 
         appListView = (ListView) rootView.findViewById(R.id.appListView);
@@ -218,6 +223,9 @@ public class AppsFragment extends BaseFragment {
         myAppButton.setEnabled(getTv().hasCapability("Launcher.Levak"));
         myAppButton.setOnClickListener(myAppLaunch);
 
+        netflixButton.setEnabled(getTv().hasCapability(Launcher.Netflix_Params));
+        netflixButton.setOnClickListener(launchNetflix);
+
         appStoreButton.setEnabled(getTv().hasCapability(Launcher.AppStore_Params));
         appStoreButton.setOnClickListener(launchAppStore);
     }
@@ -249,8 +257,55 @@ public class AppsFragment extends BaseFragment {
         }
     };
 
-    public View.OnClickListener launchAppStore = new View.OnClickListener() {
+    public View.OnClickListener launchNetflix = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (netflixSession != null) {
+                netflixSession.close(new ResponseListener<Object>() {
 
+                    @Override
+                    public void onError(ServiceCommandError error) {
+                        Log.d("LG", "Netflix close error: " + error);
+                    }
+
+                    @Override
+                    public void onSuccess(Object object) {
+                        Log.d("LG", "Netflix close success");
+                    }
+                });
+
+                netflixSession = null;
+                netflixButton.setSelected(false);
+            } else {
+                String appId = null;
+
+                if (getTv().getServiceByName("Netcast TV") != null)
+                    appId = "125071";
+                else if (getTv().getServiceByName("webOS TV") != null)
+                    appId = "redbox";
+                else if (getTv().getServiceByName("Roku") != null)
+                    appId = "13535";
+
+                getLauncher().launchNetflix(appId, new AppLaunchListener() {
+
+                    @Override
+                    public void onError(ServiceCommandError error) {
+                        Log.d("LG", "Netflix failed: " + error);
+                    }
+
+                    @Override
+                    public void onSuccess(LaunchSession object) {
+                        Log.d("LG", "Netflix launched!");
+
+                        netflixSession = object;
+                        netflixButton.setSelected(true);
+                    }
+                });
+            }
+        }
+    };
+
+    public View.OnClickListener launchAppStore = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (appStoreSession != null) {
