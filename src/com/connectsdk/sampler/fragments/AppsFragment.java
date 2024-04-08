@@ -80,6 +80,7 @@ public class AppsFragment extends BaseFragment {
         myAppButton = (Button) rootView.findViewById(R.id.myApp);
         appStoreButton = (Button) rootView.findViewById(R.id.appStoreButton);
         netflixButton = (Button) rootView.findViewById(R.id.netflixButton);
+        youtubeButton = (Button) rootView.findViewById(R.id.youtubeButton);
         toastButton = (Button) rootView.findViewById(R.id.toastButton);
 
         appListView = (ListView) rootView.findViewById(R.id.appListView);
@@ -228,6 +229,9 @@ public class AppsFragment extends BaseFragment {
 
         appStoreButton.setEnabled(getTv().hasCapability(Launcher.AppStore_Params));
         appStoreButton.setOnClickListener(launchAppStore);
+
+        youtubeButton.setEnabled(getTv().hasCapability(Launcher.YouTube_Params));
+        youtubeButton.setOnClickListener(launchYoutube);
     }
 
     public View.OnClickListener myAppLaunch = new View.OnClickListener() {
@@ -257,6 +261,46 @@ public class AppsFragment extends BaseFragment {
         }
     };
 
+    public View.OnClickListener launchYoutube = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (youtubeSession != null) {
+                youtubeSession.close(new ResponseListener<Object>() {
+
+                    @Override
+                    public void onError(ServiceCommandError error) {
+                        Log.d("LG", "Youtube close error: " + error);
+                    }
+
+                    @Override
+                    public void onSuccess(Object object) {
+                        Log.d("LG", "Youtube close success");
+                    }
+                });
+
+                youtubeSession = null;
+                youtubeButton.setSelected(false);
+            } else {
+                String appId = null;
+                getLauncher().launchYouTube(appId, new AppLaunchListener() {
+
+                    @Override
+                    public void onError(ServiceCommandError error) {
+                        Log.d("LG", "Youtube failed: " + error);
+                    }
+
+                    @Override
+                    public void onSuccess(LaunchSession object) {
+                        Log.d("LG", "Youtube launched!");
+
+                        youtubeSession = object;
+                        youtubeButton.setSelected(true);
+                    }
+                });
+            }
+        }
+    };
+
     public View.OnClickListener launchNetflix = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -278,14 +322,6 @@ public class AppsFragment extends BaseFragment {
                 netflixButton.setSelected(false);
             } else {
                 String appId = null;
-
-                if (getTv().getServiceByName("Netcast TV") != null)
-                    appId = "125071";
-                else if (getTv().getServiceByName("webOS TV") != null)
-                    appId = "redbox";
-                else if (getTv().getServiceByName("Roku") != null)
-                    appId = "13535";
-
                 getLauncher().launchNetflix(appId, new AppLaunchListener() {
 
                     @Override
