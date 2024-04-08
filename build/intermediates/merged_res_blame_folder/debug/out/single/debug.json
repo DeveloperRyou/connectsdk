@@ -16,6 +16,10 @@
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-mdpi_icon_my.png.flat",
+        "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-mdpi/icon_my.png"
+    },
+    {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-xhdpi_icon_3330.png.flat",
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-xhdpi/icon_3330.png"
     },
@@ -26,6 +30,10 @@
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/layout_channel_item.xml.flat",
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/layout/channel_item.xml"
+    },
+    {
+        "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/layout_fragment_my.xml.flat",
+        "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/layout/fragment_my.xml"
     },
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/menu_main.xml.flat",
@@ -110,6 +118,10 @@
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-xhdpi_ic_drawer.png.flat",
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-xhdpi/ic_drawer.png"
+    },
+    {
+        "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-xhdpi_icon_my.png.flat",
+        "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-xhdpi/icon_my.png"
     },
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-hdpi_ic_drawer.png.flat",
