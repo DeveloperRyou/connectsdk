@@ -90,8 +90,10 @@ public class AppsFragment extends BaseFragment {
         buttons = new Button[] {
                 browserButton,
                 toastButton, 
-                myAppButton, 
-                appStoreButton
+                myAppButton,
+                netflixButton,
+                appStoreButton,
+                youtubeButton
         };
 
         return rootView;
@@ -117,7 +119,7 @@ public class AppsFragment extends BaseFragment {
                     else {
                         browserButton.setSelected(true);
 
-                        getLauncher().launchBrowser("http://connectsdk.com/", new Launcher.AppLaunchListener() {
+                        getLauncher().launchBrowser("http://google.com/", new Launcher.AppLaunchListener() {
 
                             public void onSuccess(LaunchSession session) {
                                 setRunningAppInfo(session);
