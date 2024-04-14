@@ -52,6 +52,10 @@
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable-hdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable_arc.xml.flat",
+        "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable/arc.xml"
+    },
+    {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/layout_fragment_fiveway.xml.flat",
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/layout/fragment_fiveway.xml"
     },
@@ -94,6 +98,10 @@
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/layout_fragment_system.xml.flat",
         "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/layout/fragment_system.xml"
+    },
+    {
+        "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable_circle.xml.flat",
+        "source": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/res/drawable/circle.xml"
     },
     {
         "merged": "/Users/ryou/Develop/ConnectedPlatform/connectsdk-my/build/intermediates/merged_res/debug/drawable-xhdpi_icon_15307.png.flat",

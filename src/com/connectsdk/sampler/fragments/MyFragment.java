@@ -17,22 +17,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.connectsdk.sampler.R;
+import com.connectsdk.sampler.util.TestResponseObject;
+import com.connectsdk.service.capability.KeyControl;
 
 
 public class MyFragment extends BaseFragment {
-    public Button myButton;
-
-    private final static String WEBOSID = "webOS TV";
-    private final static String CASTID = "Chromecast";
-    private final static String MULTISCREENID = "MultiScreen";
-
+    public Button okButton;
+    public Button upButton;
+    public Button downButton;
+    public Button leftButton;
+    public Button rightButton;
     static boolean isLaunched = false;
 
-    TextView responseMessageTextView;
-    String webAppId = null;
 
     public MyFragment() {};
 
@@ -48,8 +46,11 @@ public class MyFragment extends BaseFragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_my, container, false);
 
-        myButton = (Button) rootView.findViewById(R.id.myButton);
-
+        okButton = (Button) rootView.findViewById(R.id.okButton);
+        leftButton = (Button) rootView.findViewById(R.id.leftButton);
+        rightButton = (Button) rootView.findViewById(R.id.rightButton);
+        upButton = (Button) rootView.findViewById(R.id.upButton);
+        downButton = (Button) rootView.findViewById(R.id.downButton);
         return rootView;
     }
 
@@ -57,48 +58,76 @@ public class MyFragment extends BaseFragment {
     public void enableButtons() {
         super.enableButtons();
 
-        myButton.setEnabled(getTv().hasCapability(null));
-        myButton.setOnClickListener(myFunction);
+        if (getMouseControl() != null) {
+            getMouseControl().connectMouse();
+        }
 
-        if (getTv().getServiceByName(WEBOSID) != null)
-            webAppId = "SampleWebApp";
-        else if (getTv().getServiceByName(CASTID) != null)
-            webAppId = "DDCEDE96";
-        else if (getTv().getServiceByName(MULTISCREENID) != null)
-            webAppId = "ConnectSDKSampler";
-    }
-
-    public View.OnClickListener myFunction = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (webAppId == null)
-                return;
-
-            myButton.setEnabled(false);
-/*
-            getWebAppLauncher().launchWebApp(webAppId, new LaunchListener() {
-
+        if (getTv().hasCapability(KeyControl.Up)) {
+            upButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onError(ServiceCommandError error) {
-                    Log.e("LG", "Error connecting to web app | error = " + error);
-                    myButton.setEnabled(true);
-                }
-
-                @Override
-                public void onSuccess(WebAppSession webAppSession) {
-                    return;
+                public void onClick(View view) {
+                    if (getKeyControl() != null) {
+                        getKeyControl().up(null);
+                    }
                 }
             });
-            */
-
         }
-    };
+
+        if (getTv().hasCapability(KeyControl.Left)) {
+            leftButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getKeyControl() != null) {
+                        getKeyControl().left(null);
+                    }
+                }
+            });
+        }
+
+        if (getTv().hasCapability(KeyControl.OK)) {
+            okButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getKeyControl() != null) {
+                        getKeyControl().ok(null);
+                    }
+                }
+            });
+        }
+
+        if (getTv().hasCapability(KeyControl.Right)) {
+            rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getKeyControl() != null) {
+                        getKeyControl().right(null);
+                    }
+                }
+            });
+        }
+
+        if (getTv().hasCapability(KeyControl.Down)) {
+            downButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getKeyControl() != null) {
+                        getKeyControl().down(null);
+                    }
+                }
+            });
+        }
+
+        okButton.setEnabled(true);
+        leftButton.setEnabled(true);
+        rightButton.setEnabled(true);
+        upButton.setEnabled(true);
+        downButton.setEnabled(true);
+    }
+
 
     @Override
     public void disableButtons() {
         super.disableButtons();
         isLaunched = false;
-        webAppId = null;
     }
 }

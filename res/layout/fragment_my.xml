@@ -7,32 +7,68 @@
     <TextView android:id="@+id/responseMessageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World"
+        android:text="My round controller"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:layout_marginTop="20dp"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
+        <Button
+            android:id="@+id/okButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle"
+            android:text="ok"
+            android:textColor="#FFFFFF" />
 
-            <Button
-                android:id="@+id/myButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="myButton" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/arc"
+            android:layout_above="@id/okButton"
+            android:layout_marginBottom="-60dp"
+            android:layout_centerHorizontal="true"
+            android:rotation="225"/>
 
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/downButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/arc"
+            android:layout_below="@id/okButton"
+            android:layout_marginTop="80dp"
+            android:layout_centerHorizontal="true"
+            android:rotation="45"/>
+
+        <Button
+            android:id="@+id/leftButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_toStartOf="@+id/okButton"
+            android:background="@drawable/arc"
+            android:layout_centerInParent="true"
+            android:rotation="135" />
+
+        <Button
+            android:id="@+id/rightButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerInParent="true"
+            android:layout_toEndOf="@+id/okButton"
+            android:background="@drawable/arc"
+            android:rotation="315" />
+    </RelativeLayout>
 
 
 </LinearLayout>

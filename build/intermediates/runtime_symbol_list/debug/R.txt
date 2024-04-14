@@ -824,6 +824,7 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f08004b
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f08004c
 int drawable abc_textfield_search_material 0x7f08004d
 int drawable abc_vector_test 0x7f08004e
+int drawable arc 0x7f0801c4
 int drawable btn_checkbox_checked_mtrl 0x7f08004f
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f080050
 int drawable btn_checkbox_unchecked_mtrl 0x7f080051
@@ -877,6 +878,7 @@ int drawable cast_ic_notification_stop_live_stream 0x7f080080
 int drawable cast_mini_controller_gradient_light 0x7f080081
 int drawable cast_mini_controller_img_placeholder 0x7f080082
 int drawable cast_mini_controller_progress_drawable 0x7f080083
+int drawable circle 0x7f0801c5
 int drawable common_full_open_on_phone 0x7f080084
 int drawable common_google_signin_btn_icon_dark 0x7f080085
 int drawable common_google_signin_btn_icon_dark_disabled 0x7f080086
@@ -1443,7 +1445,6 @@ int id mr_volume_slider 0x7f0900f2
 int id multiply 0x7f0900f3
 int id muteToggle 0x7f0900f4
 int id myApp 0x7f0900f5
-int id myButton 0x7f090182
 int id netflixButton 0x7f0900f6
 int id never 0x7f0900f7
 int id nextButton 0x7f0900f8
@@ -1463,6 +1464,7 @@ int id numberButton7 0x7f090105
 int id numberButton8 0x7f090106
 int id numberButton9 0x7f090107
 int id off 0x7f090108
+int id okButton 0x7f090183
 int id on 0x7f090109
 int id openKeyboardButton 0x7f09010a
 int id pager 0x7f09010b
